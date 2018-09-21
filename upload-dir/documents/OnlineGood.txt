@@ -1,0 +1,98 @@
+ 5/7/2018                                                          Proof of income statement - My Account
+
+
+
+                                                                                                             CanadS
+     Canada Revenue Agency
+
+
+
+
+       2017 Assessment
+       May 7. 2018
+
+
+
+
+            Tax yean 2017                                                       Social insurance number:
+            Taxing province: ON                                                 Province of residence: ON
+            Filing date: 28 WIAR 2018                                           Date of birth: 11 APR 1960
+            Date of assessment: 09 APR 2018                                     Marital status: MARRIED
+
+
+
+       Total income
+
+        Line       Description                                                                                Amount
+
+        101        Employment Income (box 14 on ail T4 slips)                                                   $6,000
+
+        104        Other employment income                                                                        $64
+
+        120        Taxable amount of dividends from taxable Canadian                                          $118,687
+                   corporations
+
+        180        Taxable amount of dividends other than eligible dividends,                                 $118,170
+                   included on line 120, from taxable Canadian corporations
+
+        121        Interest and other investment income                                                          $446
+
+       127         Taxable capital gains                                                                         $902
+
+       150         Total income                                                                              $126,099
+
+
+
+
+Mfps://Bpps2.ams-sga.cra-arc.gc.ca/gol-ged/luvr/repvmr/prol/dsplyNcmVrfoln.action                                        1/5
+ 8/7/2018                                                          Proof of income statement - My Account
+
+       Net income
+
+        Line        Description                                                                                Amount
+
+        229         Other employment expenses                                                                      $562
+
+        233         Total deductions                                                                               $562
+
+        234         Net Income before adjustments                                                             $125,537
+
+        236         Net Income                                                                                $125,537
+
+
+
+       Taxable income
+
+        Line        Description                                                                                Amount
+
+        260         Taxable income                                                                            $125,537
+
+
+
+       Refund or Balance owing
+
+        Line        Description                                                                                Amount
+
+        420         Net federal tax                                                                          $10,611.68
+
+        428         Provincial or territorial tax (ON428)                                                    $8,322.76
+
+        435        Total payable                                                                            $18,934.44
+
+       437         Total income tax deducted (from all information slips)                                    $2,836.67
+
+       457          Employee and partner GST/HST rebate (Form GST370)                                           $64.69
+
+       476         Tax paid by instalments                                                                  -$23,448.00
+
+                   Balance before penalty and Interest                                                       -$7,414.92
+
+                   Balance from this assessment                                                              -$7,414.92
+
+                   Final balance                                                                             -$7,414.92
+
+
+
+
+https://apps2.sms-s9a.cna'arc.gc.ca/gol-ged/tuvr/repvmr/prot/dsplyNcmVrfctn.action                                        2/5
+

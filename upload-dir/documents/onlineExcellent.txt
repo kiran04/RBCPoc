@@ -1,0 +1,270 @@
+8/14/2018                                                              Proof of income statement - My Account
+
+
+                                                                                                                     Canada
+    Canada Revenue Agency
+
+
+
+
+      2017 Assessment
+      August 14, 2018
+
+
+            JOE SMITH
+            123 MAIN AVE
+            TORONTO, ON M9N 9M9
+
+            Tax year; 2017                                                           Social insurance number; 864 142 632
+            Taxing province; ON                                                      Province of residence; ON
+            Filing date; 30 APR 2018                                                 Date of birth; 11 JAN 1970
+            Date of assessment; 10 MAY 2018                                          Marital status; MARRIED
+
+
+
+
+      Total income
+
+        Line        Description                                                                                             Amount
+
+        101         Employment Income (box 14 on all T4 slips)                                                              $150,000
+
+        120         Taxable amount of dividends from taxable Canadian                                                        $90,659
+                    corporations
+
+        180         Taxable amount of dividends other than eligible dividends,                                               $48,683
+                    included on line 120, from taxable Canadian corporations
+
+        150         Total income                                                                                            $240,659
+
+
+
+
+https://apps1.ams-sga.cra-arc.gc.ca/gol-ged/tuvr/repvmr/prot/dsplyNcmVrfctn.action                                                     1/6
+8/14/2018                                                              Proof of income statement - My Account
+
+
+      Net income
+
+        Line        Description                                                                                    Amount
+
+       208          RRSP deduction                                                                                 $26,010
+
+       214          Child care expenses                                                                             $8,000
+
+       233          Total deductions                                                                               $34,010
+
+       234          Net income before adjustments                                                                 $206,649
+
+       236          Net income                                                                                    $206,649
+
+
+
+      Taxable income
+
+        Line        Description                                                                                    Amount
+
+       260          Taxable income                                                                                $206,649
+
+
+
+      Refund or Balance owing
+
+        Line        Description                                                                                    Amount
+
+       420          Net federal tax                                                                             $32,641.06
+
+       428          Provincial or territorial tax (ON428)                                                       $21,245.21
+
+       435          Total payable                                                                               $53,886.27
+
+       437          Total income tax deducted (from all information slips)                                      $46,860.30
+
+       476          Tax paid by instalments                                                                     -$14,925.00
+
+                    Balance before penalty and interest                                                          -$7,899.03
+
+                    Balance from this assessment                                                                 -$7,899.03
+
+                    Final balance                                                                                -$7,899.03
+
+
+
+
+https://apps1.ams-sga.cra-arc.gc.ca/gol-ged/tuvr/repvmr/prot/dsplyNcmVrfctn.action                                            2/6
+8/14/2018                                                              Proof of income statement - My Account
+
+
+      Federal Tax - Schedule 1
+
+      Federal non-refundable tax credits
+
+        Line        Description                                                                                   Amount
+
+       300          Basic personal amount - federal                                                               $11,635
+
+       308          CPP or QPP contributions through employment (box 16 and 17                                   $2,564.10
+                    on all T4 slips)
+
+                    CPP or QPP contributions allowed through employment                                          $2,564.10
+
+       363          Canada employment amount                                                                       $1,178
+
+       364          Public transit amount                                                                          $1,326
+
+       319          Interest paid on your student loans                                                               $55
+
+       330          Medical expenses                                                                                $8,611
+
+       332          Net medical expenses                                                                           $6,343
+
+       335          Non-refundable tax credits (excluding donations)                                              $23,101
+
+       338          Net non-refundable tax credits                                                                 $3,465
+
+       349          Donations and gifts                                                                              $701
+
+       350          Total federal non-refundable tax credits                                                       $4,166
+
+
+      Net federal tax
+
+        Line        Description                                                                                   Amount
+
+       425          Federal dividend tax credit                                                                 $11,426.98
+
+       429          Basic federal tax                                                                           $32,641.06
+
+
+
+      RRSP Unused Contributions, Transfers, and HBP or LLP Activities
+      - Schedule 7
+
+        Line        Description                                                                                   Amount
+
+       245          Total contributions made to your RRSP or your spouse or                                       $26,010
+                    common-law partner's RRSP
+
+
+
+
+https://apps1.ams-sga.cra-arc.gc.ca/gol-ged/tuvr/repvmr/prot/dsplyNcmVrfctn.action                                           3/6
+8/14/2018                                                              Proof of income statement - My Account
+
+
+      CPP Contributions on Self-Employment and Other Earnings -
+      Schedule 8
+
+        Line        Description                                                                                  Amount
+
+       5549         CPP pensionable earnings                                                                     $55,300
+
+       5034         CPP contributions                                                                           $2,564.10
+
+
+
+      Donations and Gifts - Schedule 9
+
+        Line        Description                                                                                  Amount
+
+       340          Allowable charitable donations and government gifts                                           $2,235
+
+
+
+      Federal Tuition, Education and Textbook Amounts - Schedule 11
+
+        Line        Description                                                                                  Amount
+
+       345          Education and textbook amounts according to number of months                                      $0
+                    from column B of Forms T2202, T2202A, TL11A, and TL11C -
+                    Disabled
+
+
+
+      Employment Insurance Premiums on Self-Employment and Other
+      Eligible Earnings - Schedule 13
+
+        Line        Description                                                                                  Amount
+
+       5478         El insurable earnings in accordance with box 24 of all yourT4                                     $1
+                    slips (if any of the amounts in box 24 have been left blank, are
+                    indicated as nil, or 0 and you are not El exempt, in the
+                    calculation, for that T4, please use the amounts from box 14)
+
+
+
+
+https://apps1.ams-sga.cra-arc.gc.ca/gol-ged/tuvr/repvmr/prot/dsplyNcmVrfctn.action                                          4/6
+8/14/2018                                                              Proof of income statement - My Account
+
+
+      Ontario Tax - ON428
+
+      Non-refundable tax credits
+
+        Line        Description                                                                                   Amount
+
+       5804         Basic personal amount - provincial/territorial                                                $10,171
+
+       5824         Canada Pension Plan or Quebec Pension Plan contributions                                     $2,564.10
+                    through employment (amount from line 308 of your federal
+                    Schedule 1)
+
+       5852         Interest paid on your student loans (amount from line 319 of your                                 $55
+                    federal Schedule 1)
+
+       5868         Medical expenses - provincial                                                                   $8,611
+
+       5876         Net medical expenses                                                                            $6,309
+
+       5880         Non-refundable tax credits (excluding donations)                                              $19,099
+
+       5884         Net non-refundable tax credits                                                                   $964
+
+       5896         Donations and gifts                                                                              $237
+
+       6150         Provincial or Territorial non-refundable tax credits                                            $1,201
+
+
+      Ontario tax
+
+        Line        Description                                                                                   Amount
+
+       6152         Provincial/territorial dividend tax credit                                                   $6,284.28
+
+                    Basic provincial or territorial tax                                                         $19,000.51
+
+                    Provincial or territorial surtax                                                             $7,629.92
+
+
+      Ontario Health Premium
+
+        Line        Description                                                                                   Amount
+
+                    Ontario Health Premium                                                                           $900
+
+
+
+
+https://apps1.ams-sga.cra-arc.gc.ca/gol-ged/tuvr/repvmr/prot/dsplyNcmVrfctn.action                                           5/6
+8/14/2018                                                              Proof of income statement - My Account
+
+
+      Additional information
+
+        Line        Description                                                                                 Amount
+
+       5554         CPP pensionable earnings in accordance with box 26 of all your                              $150,000
+                    T4 slips (if any of the amounts in box 26 have been left blank, are
+                    indicated as nil, or 0 and you are not CPP exempt, in the
+                    calculation, for that T4, please use the amounts from box 14)
+
+       6794         Child care expenses for children 6 or under                                                  $10,954
+
+       6795         Total Child Care Expenses                                                                    $10,954
+
+
+
+
+https://apps1.ams-sga.cra-arc.gc.ca/gol-ged/tuvr/repvmr/prot/dsplyNcmVrfctn.action                                         6/6
+
