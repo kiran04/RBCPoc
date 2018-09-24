@@ -19,6 +19,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.multipart.MultipartFile;
 
 import infrrd.rbc.poc.extractor.AmountDueExtractor;
 import infrrd.rbc.poc.extractor.FullNameExtractor;
@@ -67,6 +68,20 @@ public class DocumentServiceImpl implements DocumentService{
 		
 		//Map<String, String> values = getTextFromPDFUsingPoppler(uploadedFile);
 		//Map<String, String> values = getTextLocally(uploadedFile);
+		
+		return values;
+		
+		
+	}
+	
+	@Override
+	public Map<String, String> processDocumentwitoutUploading(File file) throws IOException {
+		// TODO Auto-generated method stub
+		
+		Map<String, String> values = getTextFromFiles(file);
+		
+		//Map<String, String> values = getTextFromPDFUsingPoppler(file);
+		//Map<String, String> values = getTextLocally(file);
 		
 		return values;
 		

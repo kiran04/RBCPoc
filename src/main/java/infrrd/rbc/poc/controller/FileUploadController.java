@@ -1,12 +1,15 @@
 package infrrd.rbc.poc.controller;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import org.apache.commons.io.FilenameUtils;
@@ -16,25 +19,80 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import infrrd.rbc.poc.service.DocumentService;
+import infrrd.rbc.poc.service.StorageService;
 import lombok.extern.slf4j.Slf4j;
 
 
 @RestController
-@RequestMapping(path = "/api/rbc", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(path = "/api/rbc")
 @Slf4j
 public class FileUploadController {
 	
 	@Autowired
 	DocumentService documentService;
 	
+	@Autowired
+	StorageService storageService;
+	
+	@CrossOrigin
+	@RequestMapping("/noa/fileupload")
+	@PostMapping()
+	public ResponseEntity<?> newDocumentFileUpload(@RequestPart("file") MultipartFile file)throws IOException {
+		
+		if ( "pdf".equalsIgnoreCase(FilenameUtils.getExtension(file.getOriginalFilename()))) {
+			
+			final File uploadedFile;
+			uploadedFile = storageService.uploadFile(file);
+			Map<String, String> output = documentService.processDocumentwitoutUploading(uploadedFile);
+			
+			log.info("<------------------START-------------------->");
+			log.info("*********************************************");
+			log.info("Processing document with filename {}", file.getName());
+			
+			Map<String,String> outputJson = getFinalOutput (output);
+			
+			//writeToStaticCSV(uploadedFile.getParentFile().getParentFile().getAbsolutePath(),output);
+			
+			try {
+				
+				String allDataFile = uploadedFile.getParentFile().getParentFile().getAbsolutePath()+"/allData.csv";
+				PrintWriter out = new PrintWriter(new BufferedWriter(
+						new FileWriter(allDataFile, true)));
+				File checkAlreadyExists =  new File(allDataFile);
+				if(!checkAlreadyExists.exists()) {
+					PrintWriter initial = new PrintWriter(new BufferedWriter(
+							new FileWriter(allDataFile, true)));
+					createCSV(initial);
+					initial.close();
+				}
+				appendValues(uploadedFile.getName(),out, output );
+			    out.close();
+			} catch (IOException e) {
+			    //exception handling left as an exercise for the reader
+			}
+			
+			log.info("The Extracted values are "+new JSONObject(outputJson).toString());
+			log.info("<--------------------------COMPLETED REQUEST------------------->");
+			return new ResponseEntity<String>(new JSONObject(outputJson).toString(), HttpStatus.OK);
+		}
+		else {				
+			log.info("File of invalid type: ", file.getName());
+			return ResponseEntity.status(HttpStatus.UNSUPPORTED_MEDIA_TYPE).build();
+		}
+	
+	}
+	
+		
 	@RequestMapping("/noa")
 	@PostMapping()
 	public ResponseEntity<?> newDocumentAgain(@RequestBody Map<String,String> requestBody) throws IOException, JSONException {
@@ -170,6 +228,47 @@ public class FileUploadController {
         pw2.append(sb.toString());
 
 		
+	}
+	
+	
+	
+	
+	private Map<String, String> getFinalOutput(Map<String, String> output) {
+
+		String[] allParameters = { "SIN", "Issued Date", "Full Name", "Tax Year", "Amount Due/Balance", "Refund",
+				"Total Income", "Net Income", "Taxable Income", "Total Payable(Tax)", "Total Credits(Tax)",
+				"Payable minus Credits(Net Tax)", "Income Tax" };
+		Map<String, String> finalOutputJson = new LinkedHashMap<>();
+
+		for (int i = 0; i < allParameters.length; i++) {
+
+			finalOutputJson.put(allParameters[i], "");
+			if (allParameters[i].equals("Amount Due/Balance") || allParameters[i].equals("Refund")) {
+				if (allParameters[i].equals("Amount Due/Balance")) {
+					if (output.containsKey("amount due"))
+						finalOutputJson.put(allParameters[i], output.get("amount due"));
+					else if (output.containsKey("balancevalue"))
+						finalOutputJson.put(allParameters[i], output.get("balancevalue"));
+					else if (output.containsKey("Balance"))
+						finalOutputJson.put(allParameters[i], output.get("Balance"));
+					else
+						finalOutputJson.put(allParameters[i], "");
+				} else {
+					if (output.containsKey("refund"))
+						finalOutputJson.put(allParameters[i], output.get("refund"));
+					else
+						finalOutputJson.put(allParameters[i], "");
+				}
+			} else {
+				if (output.containsKey(allParameters[i]))
+					finalOutputJson.put(allParameters[i], output.get(allParameters[i]));
+				else
+					finalOutputJson.put(allParameters[i], output.get(""));
+			}
+
+		}
+
+		return finalOutputJson;
 	}
 
 }
