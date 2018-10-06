@@ -49,11 +49,16 @@ public class FileUploadController {
 	@PostMapping()
 	public ResponseEntity<?> newDocumentFileUpload(@RequestPart("file") MultipartFile file)throws IOException {
 		
-		if ( "pdf".equalsIgnoreCase(FilenameUtils.getExtension(file.getOriginalFilename()))) {
+		if ("pdf".equalsIgnoreCase(FilenameUtils.getExtension(file.getOriginalFilename()))
+				|| "tiff".equalsIgnoreCase(FilenameUtils.getExtension(file.getOriginalFilename()))
+				|| "tif".equalsIgnoreCase(FilenameUtils.getExtension(file.getOriginalFilename()))) {
 			
+			
+			
+			String fileExtension  = FilenameUtils.getExtension(file.getOriginalFilename());
 			final File uploadedFile;
 			uploadedFile = storageService.uploadFile(file);
-			Map<String, String> output = documentService.processDocumentwitoutUploading(uploadedFile);
+			Map<String, String> output = documentService.processDocumentwitoutUploading(uploadedFile, fileExtension);
 			
 			log.info("<------------------START-------------------->");
 			log.info("*********************************************");
@@ -99,10 +104,15 @@ public class FileUploadController {
 		File file =  new File(requestBody.get("file"));
 		
 				
-		if ( "pdf".equalsIgnoreCase(FilenameUtils.getExtension(file.getName()))) {
+		if ("pdf".equalsIgnoreCase(FilenameUtils.getExtension(file.getName()))
+				|| "tiff".equalsIgnoreCase(FilenameUtils.getExtension(file.getName()))
+				|| "tif".equalsIgnoreCase(FilenameUtils.getExtension(file.getName()))) {
 			
-			Map<String, String> output = documentService.processDocument(file);
+			
+			String fileExtension  = FilenameUtils.getExtension(file.getName());
+			Map<String, String> output = documentService.processDocument(file, fileExtension);
 			log.info("Processing document with filename {}", file.getName());
+			
 			
 			File CSVFile= new File(file.getParentFile().getAbsolutePath()+"/"+"ExtractedOutput.csv");
 			PrintWriter pw = new PrintWriter(CSVFile);
@@ -125,9 +135,10 @@ public class FileUploadController {
 			File[] allPDFs = file.listFiles(new FilenameFilter() {
 				@Override
 				public boolean accept(File dir, String name) {
-					return name.matches(".*[.]pdf");
+					return name.matches(".*[.](pdf|PDF|TIFF|tiff|TIF|tif)");
 				}
 			} );
+			
 		
 			log.info("Total number of PDF files in the given directory are "+ allPDFs.length);
 			log.info("Estimated time to complete the extractions is "+ allPDFs.length+" mins.");
@@ -143,7 +154,7 @@ public class FileUploadController {
 				
 				log.info("<----------------Individual File Starts--------------->");
 				log.info("Processing PDF with filename {}", allPDFs[i].getName());
-				Map<String, String> output = documentService.processDocument(allPDFs[i]);
+				Map<String, String> output = documentService.processDocument(allPDFs[i],FilenameUtils.getExtension(allPDFs[i].getName()));
 				
 				log.info("The Extracted values are "+new JSONObject(output).toString());
 				appendValues (allPDFs[i].getName(),pw , output);

@@ -60,11 +60,11 @@ public class DocumentServiceImpl implements DocumentService{
 	
 	
 	@Override
-	public Map<String, String> processDocument(File file) throws IOException {
+	public Map<String, String> processDocument(File file ,String fileExtension) throws IOException {
 		// TODO Auto-generated method stub
 		final File uploadedFile;
 		uploadedFile = storageService.uploadFile(file);
-		Map<String, String> values = getTextFromFiles(uploadedFile);
+		Map<String, String> values = getTextFromFiles(uploadedFile, fileExtension);
 		
 		//Map<String, String> values = getTextFromPDFUsingPoppler(uploadedFile);
 		//Map<String, String> values = getTextLocally(uploadedFile);
@@ -75,10 +75,10 @@ public class DocumentServiceImpl implements DocumentService{
 	}
 	
 	@Override
-	public Map<String, String> processDocumentwitoutUploading(File file) throws IOException {
+	public Map<String, String> processDocumentwitoutUploading(File file,String fileExtension) throws IOException {
 		// TODO Auto-generated method stub
 		
-		Map<String, String> values = getTextFromFiles(file);
+		Map<String, String> values = getTextFromFiles(file , fileExtension);
 		
 		//Map<String, String> values = getTextFromPDFUsingPoppler(file);
 		//Map<String, String> values = getTextLocally(file);
@@ -146,9 +146,9 @@ public class DocumentServiceImpl implements DocumentService{
 	}
 
 
-	private Map<String, String> getTextFromFiles(File uploadedFile) throws IOException {
+	private Map<String, String> getTextFromFiles(File uploadedFile , String fileExtension) throws IOException {
 
-		Map<Integer, String> allFiles = getTextFromPythonApp(uploadedFile);
+		Map<Integer, String> allFiles = getTextFromPythonApp(uploadedFile , fileExtension);
 		
 		String parentDirectoryPlusPDFTextDirectory = uploadedFile.getParentFile().getAbsolutePath() + "/"
 				+ uploadedFile.getName().substring(0, uploadedFile.getName().lastIndexOf("."));
@@ -189,7 +189,10 @@ public class DocumentServiceImpl implements DocumentService{
 						"No text found in all text files in the directory sent to python app.The directory path is "
 								+ parentDirectoryPlusPDFTextDirectory);
 			
-		}}
+		}
+		else
+			log.info(sb.toString());
+		}
 		catch(Exception e) {
 			log.info(e.toString());
 		}
@@ -246,16 +249,24 @@ public class DocumentServiceImpl implements DocumentService{
 	}
 
 	
-	private Map<Integer, String> getTextFromPythonApp(File uploadedFile) {
+	private Map<Integer, String> getTextFromPythonApp(File uploadedFile ,String fileExtension) {
 
 		url = "http://127.0.0.1:8090/extract/data";
 		Map<Integer, String> intAbsolutePathNames = new HashMap<Integer, String>();
-
+		
+		
+		Boolean isTiff  = false;
+		if (fileExtension.equalsIgnoreCase("tiff") || fileExtension.equalsIgnoreCase("tif"))
+			isTiff = true;
 		String parentDirectoryPlusPDFTextDirectory = uploadedFile.getParentFile().getAbsolutePath() + "/"
 				+ uploadedFile.getName().substring(0, uploadedFile.getName().lastIndexOf("."));
 		Map<String, String> requestBody = new HashMap<String, String>();
 		requestBody.put("pdf_doc_location", uploadedFile.getAbsolutePath());
 		requestBody.put("page_dir_location", parentDirectoryPlusPDFTextDirectory);
+		requestBody.put("is_tiff",isTiff.toString() );
+		
+		new File(parentDirectoryPlusPDFTextDirectory).mkdirs();
+		
 
 		JSONObject someMap = new JSONObject(requestBody);
 
@@ -282,8 +293,16 @@ public class DocumentServiceImpl implements DocumentService{
 					// String[] fileNames =
 
 					for (int i = 0; i < numberOfPages; i++) {
-						intAbsolutePathNames.put(i + 1,
-								parentDirectoryPlusPDFTextDirectory + "/page-" + (i + 1) + ".txt");
+						if (!isTiff) {
+							intAbsolutePathNames.put(i + 1,
+									parentDirectoryPlusPDFTextDirectory + "/page-" + (i + 1) + ".txt");
+						}
+						else
+						{
+							intAbsolutePathNames.put(i + 1,
+									parentDirectoryPlusPDFTextDirectory + "/" + textFilesFolder.getName() + ".txt");
+						}
+						
 					}
 				}
 			}

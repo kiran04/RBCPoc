@@ -8,8 +8,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 public interface DocumentService {
 
-	Map<String, String> processDocumentwitoutUploading(File file) throws IOException;
+	Map<String, String> processDocumentwitoutUploading(File file, String fileExtension) throws IOException;
 	
-	Map<String, String> processDocument(File file) throws IOException;
+	Map<String, String> processDocument(File file, String fileExtension) throws IOException;
 	
 }
